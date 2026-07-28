@@ -4,144 +4,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ով է ուզում դառնալ միլիոնատեր?</title>
-    <link rel="stylesheet" href="css/animate.css">
+    <title>Ո՞վ է ուզում դառնալ ՄԻԼԻՈՆԱՏԵՐ</title>
+    <link rel="stylesheet" href="./css/animate.css">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2 format('woff2')"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-
-    
-
 </head>
 
 <body>
+    <section class="game">
+        <div class="container">
+            <button class="start-btn">Սկսել խաղը</button>
+            <div class="rules-popup" id="rulesPopup">
+                <div class="rules-content">
+                    "Ո՞վ է ուզում դառնալ ՄԻԼԻՈՆԱՏԵՐ"<br><br>
+                    ✔️ Խաղը բաղկացած է 15 հարցից։<br>
+                    ✔️ Յուրաքանչյուր ճիշտ պատասխանի դեպքում խաղացողն անցնում է հաջորդ հարցին։<br>
+                    ✔️ Խաղում կա 2 անձեռնմխելի գումար 5-րդ և 10-րդ հարցերից հետո։<br>
+                    ✔️ Խաղացողը կարող է օգտվել՝ <em>«50/50»</em>, <em>«Դահլիճի օգնություն»</em>, <em>«Զանգ
+                        ընկերոջը»</em>, <em>«Հարցը փոխելու»</em> և <em>«ԱԲ-ի օգնություն»</em> հնարավություններից։<br>
+                    ✔️ Սխալ պատասխանի դեպքում խաղացողը ստանում է վերջին շահած անձեռնմխելի գումարը։<br>
+                    ✔️ Խաղացողը կարող է ցանկացած պահի դադարեցնել խաղը և վերցնել շահած գումարը։<br><br>
+                    ՀԱՋՈՂՈՒԹՅՈՒՆ ՔԵԶ՝ ԱՊԱԳԱ ՄԻԼԻՈՆԱՏԵՐ։ 💰
+                </div>
+            </div>
+            <button class="information" id="showRules">Կանոններ</button>
+            <div class="game-block">
+                <h1 class="game-title">Ո՞վ է ուզում դառնալ ՄԻԼԻՈՆԱՏԵՐ</h1>
+                <div class="game-wrap">
+                    <div class="block-questions">
 
-    <section class="game"></section>
-    <div class="container">
-        <button class="start btn">Սկսել խաղը</button>
-        <div class="rules-popup" id="rulesPopup">
-            <div class="rules-content">
-                "Ով է ուզում դառնալ միլիոնատեր?"
-                Post by Karlen Hovhannisyan
-                Karlen Hovhannisyan
-                Created 2:02 PM2:02 PM
-                ✔️ Խաղը բաղկացած է 15 հարցից։<br>
-                ✔️ Յուրաքանչյուր ճիշտ պատասխանի դեպքում խաղացողն անցնում է հաջորդ հարցին։<br>
-                ✔️ Խաղում կա 2 անձեռնմխելի գումար 5-րդ և 10-րդ հարցերից հետո։<br>
-                ✔️ Խաղացողը կարող է օգտվել՝ <em>«50/50»</em>, <em>«Դահլիճի օգնություն»</em>, <em>«Զանգ ընկերոջը»</em>,
-                <em>«Հարցը փոխելու»</em> և <em>«ԱԲ-ի օգնություն»</em> հնարավություններից։<br>
-                ✔️ Սխալ պատասխանի դեպքում խաղացողը ստանում է վերջին շահած անձեռնմխելի գումարը։<br>
-                ✔️ Խաղացողը կարող է ցանկացած պահի դադարեցնել խաղը և վերցնել շահած գումարը։<br><br>
-                ՀԱՋՈՂՈՒԹՅՈՒՆ ՔԵԶ՝ ԱՊԱԳԱ ՄԻԼԻՈՆԱՏԵՐ։ 💰
+                        <!-- ---------- -->
+                        <!-- question 1 -->
+                        <div class="question question_1 question-active">
+                            <h2>Ո՞ր կոմպոզիտորն է հեղինակել «Երեք նվագածությունները նվագախմբի համար» կոչվող
+                                ստեղծագործությունը, որը գրված է ատոնային տեխնիկայով</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Իգոր Ստրավինսկի</div>
+                                <div class="answer">Բ. Առնոլդ Շյոնբերգ</div> <!-- Right variant -->
+                                <div class="answer">Գ. Կլոդ Դեբյուսի</div>
+                                <div class="answer">Դ. Բելա Բարտոկ</div>
+                            </div>
+                        </div>
+                        <!-- question 2 -->
+                        <div class="question question_2">
+                            <h2>Արեգակնային համակարգի որ մոլորակն ունի ամենակարճ օրը (առանցքային պտույտով)</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Երկիր</div>
+                                <div class="answer">Բ. Մարս</div>
+                                <div class="answer">Գ. Յուպիտեր</div> <!-- Right variant -->
+                                <div class="answer">Դ. Սատուրն</div>
+                            </div>
+                        </div>
 
+                        <!-- question 3 -->
+                        <div class="question question_3">
+                            <h2>Որ օվկիանոսի հատակում է գտնվում Մարիանյան խրամատը</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Ատլանտյան</div>
+                                <div class="answer">Բ. Հնդկական</div>
+                                <div class="answer">Գ. Հյուսիսային սառուցյալ</div>
+                                <div class="answer">Դ. Խաղաղ</div> <!-- Right variant -->
+                            </div>
+                        </div>
+
+                        <!-- question 4 -->
+                        <div class="question question_4">
+                            <h2>Ինչպես է կոչվում կիթառի լարերի ամենաստանդարտ լարումը (կարգավորումը) վեցլար կիթառի համար
+                            </h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Drop D</div>
+                                <div class="answer">Բ. Standard tuning (E-A-D-G-B-E)</div> <!-- Right variant -->
+                                <div class="answer">Գ. Open G</div>
+                                <div class="answer">Դ. DADGAD</div>
+                            </div>
+                        </div>
+
+                        <!-- question 5 -->
+                        <div class="question question_5">
+                            <h2>Ճապոնիայի «Ծագող արևի երկիր» անվանումն ինչ ճապոնական բառից է ուղղակիորեն թարգմանված</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Նիհոն</div>
+                                <div class="answer">Բ. Նիպպոն</div>
+                                <div class="answer">Գ. Ասուկա</div>
+                                <div class="answer">Դ. Նիհոն/Նիպպոն («արևի ծագման երկիր»)</div> <!-- Right variant -->
+                            </div>
+                        </div>
+
+                        <!-- question 6 -->
+                        <div class="question question_6">
+                            <h2>Ոսկու «Au» քիմիական նշանը ծագում է լատիներեն ո՞ր բառից</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Argentum</div>
+                                <div class="answer">Բ. Aurum</div> <!-- Right variant -->
+                                <div class="answer">Գ. Aureus</div>
+                                <div class="answer">Դ. Aurea</div>
+                            </div>
+                        </div>
+
+                        <!-- question 7 -->
+                        <div class="question question_7">
+                            <h2>«Ռոմեո և Ջուլիետ» պիեսի սյուժեն Շեքսպիրը փառավորապես փոխառել է ո՞ր իտալացի հեղինակի
+                                ստեղծագործությունից</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Դանթե Ալիգիերի</div>
+                                <div class="answer">Բ. Ջովաննի Բոկաչչո</div>
+                                <div class="answer">Գ. Մատեո Բանդելլո</div> <!-- Right variant -->
+                                <div class="answer">Դ. Պետրարկա</div>
+                            </div>
+                        </div>
+
+                        <!-- question 8 -->
+                        <div class="question question_8">
+                            <h2>Մարսի կարմիր գույնը հիմնականում պայմանավորված է մակերևույթի որ միացության առկայությամբ
+                            </h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Պղնձի օքսիդ</div>
+                                <div class="answer">Բ. Երկաթի օքսիդ (հեմատիտ)</div> <!-- Right variant -->
+                                <div class="answer">Գ. Ծծմբի երկօքսիդ</div>
+                                <div class="answer">Դ. Ալյումինի օքսիդ</div>
+                            </div>
+                        </div>
+
+                        <!-- question 9 -->
+                        <div class="question question_9">
+                            <h2>Ո՞ր ամսաթվին ստորագրվեց Ճապոնիայի պայմանագիրը հանձնվելու մասին, որով պաշտոնապես ավարտվեց
+                                Երկրորդ համաշխարհային պատերազմը</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. 1945 թ. օգոստոսի 15</div>
+                                <div class="answer">Բ. 1945 թ. սեպտեմբերի 2</div> <!-- Right variant -->
+                                <div class="answer">Գ. 1945 թ. մայիսի 8</div>
+                                <div class="answer">Դ. 1945 թ. հուլիսի 26</div>
+                            </div>
+                        </div>
+
+                        <!-- question 10 -->
+                        <div class="question question_10">
+                            <h2>Ինչպես կոչվում են այն պարզ թվերը, որոնք ունեն 2ⁿ - 1 տեսք (օրինակ՝ 3, 7, 31, 127)</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Ֆերմայի պարզ թվեր</div>
+                                <div class="answer">Բ. Մերսենի պարզ թվեր</div> <!-- Right variant -->
+                                <div class="answer">Գ. Սոֆի Ժերմենի պարզ թվեր</div>
+                                <div class="answer">Դ. Էվկլիդեսի պարզ թվեր</div>
+                            </div>
+                        </div>
+
+                        <!-- question 11 -->
+                        <div class="question question_11">
+                            <h2>Ո՞ր նկարիչն է նկարել Սիքստինյան կապելլայի առաստաղը</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Լեոնարդո դա Վինչի</div>
+                                <div class="answer">Բ. Ռաֆայել</div>
+                                <div class="answer">Գ. Միքելանջելո</div> <!-- Right variant -->
+                                <div class="answer">Դ. Դոնատելլո</div>
+                            </div>
+                        </div>
+
+                        <!-- question 12 -->
+                        <div class="question question_12">
+                            <h2>Ավստրալիայի որ քաղաքն է ընտրվել երկրի մայրաքաղաք, այն դեպքում երբ Սիդնեյն ու Մելբուրնը
+                                երկուսն էլ հայտնվում էին այս կարգավիճակի հավակնորդների շարքում</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Սիդնեյ</div>
+                                <div class="answer">Բ. Մելբուրն</div>
+                                <div class="answer">Գ. Կանբեռա</div> <!-- Right variant -->
+                                <div class="answer">Դ. Պերտ</div>
+                            </div>
+                        </div>
+
+                        <!-- question 13 -->
+                        <div class="question question_13">
+                            <h2>Ջրածնի ո՞ր իզոտոպն է կոչվում տրիտիում</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. ¹H (1 պրոտոն, 0 նեյտրոն)</div>
+                                <div class="answer">Բ. ²H (1 պրոտոն, 1 նեյտրոն)</div>
+                                <div class="answer">Գ. ³H (1 պրոտոն, 2 նեյտրոն)</div> <!-- Right variant -->
+                                <div class="answer">Դ. ⁴H (1 պրոտոն, 3 նեյտրոն)</div>
+                            </div>
+                        </div>
+
+                        <!-- question 14 -->
+                        <div class="question question_14">
+                            <h2>Ո՞վ էր առաջին կինը, ով ստացավ Նոբելյան մրցանակ</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Ռոզալինդ Ֆրանկլին</div>
+                                <div class="answer">Բ. Մարի Կյուրի</div> <!-- Right variant -->
+                                <div class="answer">Գ. Ադա Լավլեյս</div>
+                                <div class="answer">Դ. Դորոթի Հոջկին</div>
+                            </div>
+                        </div>
+
+                        <!-- question 15 -->
+                        <div class="question question_15">
+                            <h2>Աշխարհագրության մեջ վաղուց ընդունված է Նեղոսը համարել ամենաերկար գետը, սակայն ո՞ր գետի
+                                հետ է շարունակվում գիտական բանավեճը՝ առաջնությունը վիճարկելու հարցում</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Յանցզի</div>
+                                <div class="answer">Բ. Ամազոն</div> <!-- Right variant -->
+                                <div class="answer">Գ. Օբ-Իրտիշ</div>
+                                <div class="answer">Դ. Կոնգո</div>
+                            </div>
+                        </div>
+
+                        <!-- question 16 (Extra) -->
+                        <div class="question question_extra" id="extra">
+                            <h2>Ըստ իր խոստովանության ինչի աստվածն էր Օլե Լուկոյեն՝ Անդերսենի համանուն հեքիաթից</h2>
+                            <div class="block-answers">
+                                <div class="answer">Ա. Հեքիաթների</div>
+                                <div class="answer">Բ. Մանկության</div>
+                                <div class="answer">Գ. Գիշերվա</div>
+                                <div class="answer">Դ. Երազների</div>
+                            </div>
+                        </div>
+                        <button class="end-btn" id="end">Դադարեցնել խաղը</button>
+                    </div>
+                    <div class="block-win">
+                        <div class="hints">
+
+                            <div class="hints-help fifty-fifty">
+                                <span class="close-left"></span>
+                                <span class="close-right"></span>
+                                50/50
+                            </div>
+
+                            <div class="hints-help hall-help">
+                                <span class="close-left"></span>
+                                <span class="close-right"></span>
+                                <i class="fas fa-users"></i>
+                            </div>
+
+                            <div class="hints-help call-friend">
+                                <span class="close-left"></span>
+                                <span class="close-right"></span>
+                                <i class="fas fa-phone"></i>
+                            </div>
+
+                            <div class="hints-help changed-question" id="hintBox">
+                                <span class="close-left"></span>
+                                <span class="close-right"></span>
+                                <i class="fas fa-retweet"></i>
+                            </div>
+
+                            <div class="hints-help ai-help">
+                                <span class="close-left"></span>
+                                <span class="close-right"></span>
+                                AI
+                            </div>
+                        </div>
+                        <div class="wins">
+                            <div class="wins-block"><span>15. </span>5.000.000</div>
+                            <div class="wins-block"><span>14. </span>3.000.000</div>
+                            <div class="wins-block"><span>13. </span>2.000.000</div>
+                            <div class="wins-block"><span>12. </span>1.000.000</div>
+                            <div class="wins-block"><span>11. </span>500.000</div>
+                            <div class="wins-block"><span>10. </span>250.000</div>
+                            <div class="wins-block"><span>9. </span>125.000</div>
+                            <div class="wins-block"><span>8. </span>64.000</div>
+                            <div class="wins-block"><span>7. </span>32.000</div>
+                            <div class="wins-block"><span>6. </span>16.000</div>
+                            <div class="wins-block"><span>5. </span>8.000</div>
+                            <div class="wins-block"><span>4. </span>4.000</div>
+                            <div class="wins-block"><span>3. </span>2.000</div>
+                            <div class="wins-block"><span>2. </span>1.000</div>
+                            <div class="wins-block"><span>1. </span>500</div>
+                        </div>
+                        <div class="ai-explain-block" id="aiExplainBlock">
+                            <span class="ai-explain-close" id="aiExplainClose">&times;</span>
+                            <h3>ԱԲ-ի պատասխան</h3>
+                            <p class="ai-explain-text" id="aiExplainText"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <button class="information" id="shorules">Կանոններ</button>
-        <div class="gameitsblock">
-            <h1 class=" game-title" Ով է ուզում դառնալ միլիոնատեր?></h1>
-            <div class="game-wrap">
-                <div class="block-questions">
-                    <div class="question question1 question-actiwe">
-                        <2>Նվագախմբի տարատեսակ</2>
-                        <div class="block-answers">
-                            <div class="answer">Ա. Դողային</div>
-                            <div class="answer">Բ։ Կողային</div>
-                            <div class="answer">Բ։ Փողային</div>
-                            <div class="answer">Դ։ Փողասերային</div>
-                        </div>
-                    </div>
-                    <div class="question question_2">
-                        <2>Նվագախմբի տարատեսակ</2>
-                        <div class="block-answers">
-                            <div class="answer">Ա. Դողային</div>
-                            <div class="answer">Բ։ Կողային</div>
-                            <div class="answer">Բ։ Փողային</div>
-                            <div class="answer">Դ։ Փողասերային</div>
-                        </div>
-                    </div>
-
-                    <div class="question question_extra extra">
-                        <h2>Ըստ իր խոստովանության ինչի աստվածն էր Օլե Լոկեյլն Անդերսոնի համանուն հեքիաթից </h2>
-                        <div class="answer"> Ա. Հեքիաթներ</div>
-                        <div class="answer"> Բ. Մանկուփյան</div>
-                        <div class="answer"> Գ. Գիշերվա</div>
-                        <div class="answer"> Դ. Երազների</div>
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="button end-btn" id="end">Դադարեցնել խաղը</button>
-                </div>
-
-                <div class="block-win">
-                    <div class="hints">
-                        <div class="hints-help fifty-fifty">
-                            <span class="close-left"></span>
-                            <span class="close-right"></span>
-                            50/50
-                        </div>
-                        <div class="hints-help hall-help">
-                            <span class="close-left"></span>
-                            <span class="close-right"></span>
-                            <i>
-                                <div class="fas fa-users"></div>
-                            </i>
-                        </div>
-                    </div>
-                    <div class="hints-help qall-friend">
-                        <span class="close-left"></span>
-                        <span class="close-right"></span>
-                        <i>
-                            <div class="fas fa-phone"></div>
-                        </i>
-                    </div>
-
-                    <div class="hints-help changet-question" id="hintBox">
-                        <span class="close-left"></span>
-                        <span class="close-right"></span>
-                        <i>
-                            <div class="fas fa-rretweet"></div>
-                        </i>
-                    </div>
-                    <div class="hints-help ai-help">
-                        <span class="close-left"></span>
-                        <span class="close-right"></span>
-                        AI
-                    </div>
-                </div>
-                <div class="wins">
-                        <div class="block"><span>15.</span>5 000 000</div>
-                        <div class="block"><span>14.</span>3 000 000</div>
-                        <div class="block"><span>13.</span>2 000 000</div>
-                        <div class="block"><span>12.</span>1 000 000</div>
-                        <div class="block"><span>11.</span>500 000 </div>
-                        <div class="block"><span>10.</span>200 000 </div>
-                        <div class="block"><span>9.</span>125 000 </div>
-                        <div class="block"><span>8.</span>64 000 </div>
-                        <div class="block"><span>7.</span>32 000 </div>
-                        <div class="block"><span>6.</span>18 000 </div>
-                        <div class="block"><span>5.</span>6 000 </div>
-                        <div class="block"><span>4.</span>4 000 </div>
-                        <div class="block"><span>3.</span>3 000 </div>
-                        <div class="block"><span>2.</span>2 000 </div>
-                        <div class="block"><span>1.</span>1 000 </div>
-                </div>
-
-                    <div class="AI-explain-block" id="ExplainBlock">
-                        <span class="ai-explain-close" id="aiExplainClose">&times;</span>
-                        <h3>UP պատասխան</h3>
-                        <p close="ai-explain_text" id="aiExplainText"></p>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <section>
-
-        <script src="js/script.js"></script>
+    </section>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
