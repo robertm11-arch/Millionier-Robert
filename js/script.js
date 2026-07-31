@@ -325,7 +325,7 @@ aiExplainClose.addEventListener('click', () => {
 
 
 async function askAi(questionText, answerOptions) {
-  const response = await fetch('https://api.openai.com/v1/chat/completions' ,{
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -355,7 +355,7 @@ async function askAi(questionText, answerOptions) {
 
 
 
-function  getStartGame(){
+function getStartGame() {
   getStartQuestions()
   getStartBlockAnswers()
   getStartBlockWins()
@@ -363,13 +363,13 @@ function  getStartGame(){
 }
 
 
-function  getStartQuestions(){
-  for (let i = 0 ; i < blockQuestion.length; i++){
-  blockQuestion[i].children[1].classList.remove('block-event')
-  blockQuestion[i].classList.remove('animate__fadeOut')
-if (blockQuestion[i].classList.contains('question-active')){
-  blockQuestion[i].classList.remove('question-active')
-}
+function getStartQuestions() {
+  for (let i = 0; i < blockQuestion.length; i++) {
+    blockQuestion[i].children[1].classList.remove('block-event')
+    blockQuestion[i].classList.remove('animate__fadeOut')
+    if (blockQuestion[i].classList.contains('question-active')) {
+      blockQuestion[i].classList.remove('question-active')
+    }
 
   }
 }
@@ -377,19 +377,291 @@ if (blockQuestion[i].classList.contains('question-active')){
 
 
 
-function getStartBlockAnswers(){
-for (let i = 0 ; i < btnAnswers.length ; i++){
-        if (blockAnswers[i].children[0]){
-          blockAnswers[i].children[0].remove()
+function getStartBlockAnswers() {
+  for (let i = 0; i < btnAnswers.length; i++) {
+    if (blockAnswers[i].children[0]) {
+      blockAnswers[i].children[0].remove()
+    }
+
+    btnAnswers[i].classList.remove('green-bg', 'error-answer', 'fifty-active', 'animate__zzomOut', 'color-active')
+  }
+}
+
+
+function getStartBlockWins() {
+  for (let i = 0; i < winBlock; i++) {
+    winBlock[i].classList.remove('wins-active', 'animate__animated', 'animate__pulse', 'win-garanted', 'animate__tada', 'animate__heartzBeat')
+  }
+}
+
+
+function getStartBlocksHelp() {
+  for (let i = 0; i < helpBtns.length; i++) {
+    helpBtns[i].classList.remove('block-event', 'hints-help_spent')
+  }
+  aiExplainBlock.classList.remove('show')
+  aiExplainText.innerText = ''
+}
+
+function correctnessAnswer(numberQuestion, userAnswer, blockAnswer, blockQuestionParentElement) {
+  const correctSound = new Audio("music/correct-sound.mp3")
+  const incorrectSound = new Audio("music/incorrect-sound.mp3")
+  // Ճիշտ պատասխանի ձայն
+  function playCorrectSound() {
+    correctSound.play();
+  }
+  // Սխալ պատասխանի ձայն
+  function playIncorrectSound() {
+    incorrectSoundFlag = true
+    fixed1.pause()
+    incorrectSound.play();
+  }
+  // Եթե պատասխանը ճիշտ է, ապա բլոկը կանաչ կներկվի  
+  if (answers[numberQuestion] === userAnswer) {
+
+    setTimeout(() => {
+      blockAnswer.classList.add('green-bg');
+    }, 500);
+    // Ճիշտ պատասխան, ճիշտ ձայն
+    playCorrectSound();
+    //Ստուգում է եթե տվյալ դիվը ունի տվյալ կլասը , հեռացնում է
+    if (numberQuestion == 'question_extra') {
+      setTimeout(() => {
+        extraQuestion.classList.remove("question_extra")
+        extraQuestion.classList.remove("question-active")
+      }, 500);
+
+
+    }
+  } else {
+    setTimeout(() => {
+      blockAnswer.classList.add('error-answer');
+      setTimeout(() => {
+        // Կանչում ենք ֆունկցիան ճիշտ պատասխանը ստանալու համար
+        let blockAnswer = getBlockAnswer(blockQuestionParentElement.children, numberQuestion);
+        blockAnswer.classList.add('green-bg');
+      }, 1000);
+
+    }, 500);
+    // Սխալ պատասխան, սխալ ձայն
+    playIncorrectSound();
+    // Կանչում ենք ֆունկցիան  պատասխաններով բլոկը թաքցնելու և շահումները ցույց տալու համար
+    setTimeout(() => {
+      getRemoveClassName();
+    }, 3500);
+    setTimeout(() => {
+      mainGame.classList.remove('animate__backInUp'); //mainGame-ի վրայից ջնջվում է նախապես ստեղծված կլասի անվանումը
+      gameWrapper.classList.remove('animate__flipInX'); // gameWrapper-ի վրայից ջնջվում է նախապես ստեղծված կլասի անվանումը
+      mainGame.classList.add('animate__animated', 'animate__backOutDown'); //mainGame-ի վրա ավելանում է նշված երկու կլասի անվանումները
+      setTimeout(() => { //Ցույց է տալիս թե ինչքան ժամանակ հետո պետք է կատարվի տվյալ գործողությունը
+        mainGame.style.display = 'none';
+        startBtn.style.display = 'block';
+        startBtn.classList.remove('animate__backOutUp');
+        startBtn.classList.add('animate__backInDown');
+      }, 1000);
+      setTimeout(() => {
+        startBtn.classList.remove('animate__backInDown');
+        game.style.backgroundImage = '';
+
+      }, 2000);
+
+      // գտնում ենք հաղթած գումարի բլոկը
+      let userWin = document.querySelector('.user-win');
+      //եթե այն գոյություն ունի ջնջում ենք
+      if (userWin) {
+        userWin.remove();
+      }
+      // Մաքրում ենք բոլոր ակտիվ կլասերը, որպեսի ունենանք խաղի ավարտի պատկեր, կամ փակենք խաղը, ու ցուցադրենք միայն սկսել խաղը կոճակը
+      getStartGame();
+    }, 4500);
+
+    return;
+  }
+  // Կանչում ենք ֆունկցիան, որը կցուցադրի նոր հարցը
+  setTimeout(() => {
+    getBlockQuestion();
+  }, 2000);
+}
+
+changeQuestion.addEventListener('click', function changeQuestion() {
+  let blockActiveQuestion = getActiveBlockQuestion()
+  blockActiveQuestion.remove()
+  extraQuestion.classList.add('question-active')
+  changeQuestion.classList.add('hints-help_spent', 'block-event')
+})
+
+
+function getRemoveClassName() {
+  for (let i = 0; i < blockQusetions; i++) {
+    if (blockQusetions[i].classList.contains('question-active')) {
+      blockQusetions[i].classList.add('animate__animated', 'animate__fadeOut')
+      blockQusetions[i].classList.remove('question-active')
+
+      getBlockBefor(blockQusetions[i])
+    }
+  }
+}
+
+
+function getBlockBefor(block) {
+  block.insertAdjacentHTML('beforbegin'
+    `<div class="user-win animate__animated animate__fadeIn"><p>Ձեր հաղթանակը</p><p>"${getGarantWin()}"</p></div>`);
+}
+
+function getGarantWin() {
+  for (let i = 0; i < winBlock.length; i++) {
+    if (winBlock[i].classList.contains('win-guaranteed')) {
+      let getUserWin = winBlock[i].innerText
+      for (let symbol of getUserWin) {
+        if (symbol == ",") {
+          getUserWin = ""
+          continue
         }
 
-        btnAnswers[i].classList.remove('green-bg','error-answer','fifty-active','animate__zzomOut','color-active')
-}
-}
-
-
-function getStartBlockWins(){
-  for (let i = 0 ; i < winBlock; i++){
-   winBlock[i].classList.remove('wins-active','animate__animated','animate__pulse','win-garanted','animate__tada','animate__heartzBeat')
+        getUserWin = symbol
+      }
+      return getUserWin + 'ԴՐԱՄ'
+    }
   }
+  return 0;
+}
+
+
+function getBlockAnswer(blockChildrenElen, numberQuestion) {
+  for (let i = 0; i < blockChildrenElen.length; i++) {
+    if (blockChildrenElen[i].innerText = answers(numberQuestion)) {
+      return blockChildrenElen[i];
+    }
+  }
+}
+
+
+
+// ֆունկցիան նախատեսված է հայտնվող հարցի բլոկը թաքցնելու և նոր հարցի բլոկը ցույց տալու համար։
+function getBlockQuestion() {
+  for (let i = 0; i <= blockQuestion.length; i++) {
+
+    if (i === blockQuestion.length - 1) { //Եթե i-ն հասել է վերջին հարցի բլոկին,
+      // ապա կանչվում է getWinBlock(i + 1) որը,ցույց կտա հաղթանակի բլոկը։
+      getWinBlock(i + 1);
+      return;
+    }
+    if (blockQuestion[i].classList.contains('question-active')) {
+      blockQuestion[i].classList.add('animate__fadeOut'); //ավելանում է հետևյալ անունով կլասը
+      blockQuestion[i].classList.remove('question-active', 'animate__animated', 'animate__pulse'); //հեռացվում է կլասը
+
+      setTimeout(() => {
+        blockQuestion[++i].classList.add('question-active', 'animate__animated', 'animate__pulse');
+        getWinBlock(i);
+      }, 200);
+      return;
+    }
+  }
+}
+
+function getWinBlock(non) {
+  let nonBlock = (winBlock.length) - non
+  count++
+  if (count >= 6) {
+    changeQuestion.style.opacity = 1
+  }
+  if (nunBlock == 10 || nonBlock == 5) {
+    winBlock[nunBlock + 1].classList.remove('wins-active')
+    winGaranteed(nonBlock)
+  } else if (nonBlock == 24) {
+    winBlock[winBlock].classList.add('wins-active', 'animate__animated', 'animate__pulse');
+
+  } else if (nunBlock == 0) {
+    extraQuestion.style.opacity = '0'
+    endB.style.opacity = '0'
+    winBlock[nunBlock + 1].classList.remove('win-active')
+    winBlock[nonBlock].classList.remove('animate__animated', 'animate__heartBeat', 'win-guaranteed');
+    winGuaranteed(nonBlock)
+    setTimeout(() => {
+      getRemoveClassName()
+    }, 200);
+  } else {
+    winBlock[nonBlock + 1].classList.remove('wins-active')
+    winBlock[nonBlock].classList.add('wins-active', 'animate__animated', 'animate-pulse')
+  }
+
+}
+
+
+function winGuaranteed(nonBlock) {
+  if (nonBlock = 10) {
+    fixed1.play()
+    winBlock[10].classList.remove('animate__animated', 'animate__tada', 'win-guaranteed')
+    winBlock[5].classList.add('animate__animated', 'animate__tada', 'win-guaranteed')
+
+  }
+
+  if (nonBlock = 0) {
+         generalMusic.play()
+         winBlock.classList.add('animate__animated', 'animate__tada', 'win-guaranteed')
+  }
+}
+
+function getActiveBlockQuestion(){
+      for(let i = 0 ; i < blockQusetions.length ; i++){
+                    if(blockQusetion[i].classList.contains('question-active')){
+                        return blockQusetions[i]
+                    }
+      }
+}
+
+function getBlockRandom(blockChildrenAnswer, blockCorrectAnswer, numRandom) {
+  for (let i = 0; i < blockChildrenAnswer.length; i++) {
+    // Եթե պատահական բլոկը համապատասխանում է ճիշտ պատասխանին, ապա կրկնում է գործողությունը այնքան ժամանակ
+    // մինչև գտնի սխալ պատասխան
+
+    if (blockChildrenAnswer[numRandom] === blockCorrectAnswer) {
+      if (numRandom === blockChildrenAnswer.length - 1) {
+        numRandom -= 1;
+      } else if (numRandom === 0) {
+        numRandom += 1;
+      } else {
+        numRandom += 1;
+      }
+    }
+    return blockChildrenAnswer[numRandom];
+  }
+}
+
+
+function removeBlocks (blockChildrenAnswer){
+              for(let i = 0 ; i < blockChildrenAnswer.length;i++){
+                   if(blockChildrenAnswer[i].classList.contains('fifty-active')){
+                        blockChildrenAnswer[i].classList.add('animate__animated','animate__zoomOut')
+                   }
+              }
+}
+
+
+function getRandom(win,max){
+  return Math.floor(Math.random() * (max-win + 1) +min)
+}
+
+
+
+
+const answers = {
+  question_1: 'Գ. Յուպիտեր',
+  question_2: 'Գ. Մերկուր',
+  question_3: 'Գ. Ջոն Ֆ. Քենեդի',
+  question_4: 'Գ. Էլեկտրոն',
+  question_5: 'Բ. Ուիլյամ Շեքսպիր',
+  question_6: 'Գ. Խաղաղ',
+  question_7: 'Բ. Intel',
+  question_8: 'Բ. Au»',
+  question_9: 'Բ. Մայքլ Քոլինզ',
+  question_10: 'Բ. Մարդու իրավունքների հռչակագիր',
+  question_11: 'Բ. Միտոքոնդրիում',
+  question_12: 'Գ. Կանբեռա',
+  question_13: 'Բ. 1914-1918',
+  question_14: 'Բ. 1917',
+  question_15: 'Բ. 476',
+  question_extra: 'Դ. Երազների'
+
+
 }
